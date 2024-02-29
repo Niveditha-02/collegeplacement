@@ -62,7 +62,7 @@ padding-left:20px;
 
 <body>
      <div class="header">
-       <a href="BIET.JPG" class="logo">BIET PLACEMENT AND TRAINING CELLsssssssssss</a>
+       <a href="BIET.JPG" class="logo">BIET PLACEMENT AND TRAINING CELLlllllllllllllllllllllllsssssssssss</a>
         <div class="header-right">
         <a href="home.php">home</a>
       </div>
