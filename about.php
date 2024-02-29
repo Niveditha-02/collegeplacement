@@ -1,7 +1,7 @@
 <!-- logout.php -->
 <head>
 
-	<title>PLACEMENT AND TRAINING CELLsssssssssssssssssssssssssssssssssssssssssssssssssssssssss</title>
+	<title>PLACEMENT AND TRAINING CELL</title>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 	<!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -62,7 +62,7 @@ padding-left:20px;
 
 <body>
      <div class="header">
-       <a href="BIET.JPG" class="logo">BIET PLACEMENT AND TRAINING CELL</a>
+       <a href="BIET.JPG" class="logo">BIET PLACEMENT AND TRAINING CELLsssssssssss</a>
         <div class="header-right">
         <a href="home.php">home</a>
       </div>
