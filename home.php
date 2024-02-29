@@ -112,7 +112,7 @@
 
     <div class="info">
 
-   <p> <b>Training and Placement CELL</b> is a backbone of any institute which is committed 
+   <p> <b>Training and Placement CELLsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</b> is a backbone of any institute which is committed 
     to develop dynamism, strong human values technocratic and good leadership 
     qualities as per the need of rapidly changing technology working with a 
     strategy oriented planning. The Placement Cell plays a crucial role in 
