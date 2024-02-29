@@ -1,0 +1,78 @@
+<Html>  
+    <head>   
+        <title>   
+        Adding Company
+        </title> 
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> 
+        <style>
+            body{
+                font-family: 'Poppins';
+                font-size: 17px;
+            }
+            .cent{
+          text-align: center;
+         }
+         .bordered
+         {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            border: 6px solid rgb(13, 9, 80);
+         }
+         .btn1{
+			background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+
+		}
+		.btn2
+		{
+			background-color: #f44336;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+		}
+           
+        </style>
+    </head>  
+
+<body>  
+<br>  
+<br>  
+<div class="bordered">
+<div class="cent">
+<form method="POST" action="addc.php">  
+  
+<label> Company ID: </label>         
+<input type="text" name="cid" size="15"/> <br> 
+
+<label> Company Name: </label>         
+<input type="text" name="name" size="15"/> <br>  
+
+<label> Type: </label>         
+<input type="text" name="type" size="15"/> <br> 
+
+<label> Package: </label>         
+<input type="text" name="package" size="15"/> <br>  
+
+<input type="submit" value="Add" class="btn1"/>  
+<input type="reset" value="Reset" class="btn2"/>  
+
+
+</form>  
+</div>
+</div>
+</body>
+</Html>
+</body>  
+</html>  
+
