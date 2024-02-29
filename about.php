@@ -12,7 +12,7 @@
         padding: 20px 10px;
         font-family: 'Poppins';
         font-size: 25px; 
-       }
+            }
 
 /* Style the header links */
       .header a {
