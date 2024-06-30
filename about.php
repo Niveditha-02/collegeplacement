@@ -79,7 +79,7 @@ padding-left:20px;
 		</ol>
 
     <div class="container center grey-text">
-		<p>Made with &#10084; by Khushiii</p>
+		<!--<p>Made with &#10084; by Khushiii</p>-->
 	</div>
     </div>
     
