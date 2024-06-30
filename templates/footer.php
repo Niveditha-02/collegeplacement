@@ -77,7 +77,7 @@
                         <a href="biet@dvg"><i class="icon ion-social-instagram"></i></a>
                     </div>
                 </div>
-                <p class="copyright">BIET © 2023</p>
+                <p class="copyright">BIET © 2024</p>
             </div>
         </footer>
     </div>
