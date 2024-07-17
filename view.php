@@ -147,7 +147,7 @@ if (isset($_GET['branch'])) {
         
         <?php
         if (isset($result)) {
-            if ($result->num_rows > 0) {
+            if ($result->branch > 0) {
                 echo "<ul>";
                 while ($row = $result->fetch_assoc()) {
                     echo "<li>" . htmlspecialchars($row['branch']) . " (ID: " . htmlspecialchars($row['sid']) . ")</li>";
