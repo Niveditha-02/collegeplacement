@@ -141,7 +141,7 @@ if (isset($_GET['q'])) {
             if ($result->num_rows > 0) {
                 echo "<ul>";
                 while($row = $result->fetch_assoc()) {
-                    echo "<li>" . $row['title'] . ": " . $row['description'] . "</li>";
+                    echo "<li>" . $row['branch'] . ": " . $row['sem'] . "</li>";
                 }
                 echo "</ul>";
             } else {
