@@ -113,7 +113,7 @@ if (isset($_GET['q'])) {
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "search_db";
+    $dbname = 'placement";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -127,14 +127,7 @@ if (isset($_GET['q'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Results</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+
 <body>
     <div class="search-container">
         <h1>Search Results</h1>
@@ -159,7 +152,6 @@ if (isset($_GET['q'])) {
         ?>
     </div>
 </body>
-</html>
 
 
                     
