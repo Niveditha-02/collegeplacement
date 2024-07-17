@@ -122,7 +122,7 @@ if (isset($_GET['q'])) {
     }
 
     // SQL query to search the database
-    $sql = "SELECT * FROM search_table WHERE title LIKE '%$query%' OR description LIKE '%$query%'";
+    $sql = "SELECT * FROM student WHERE title LIKE '%$query%' OR description LIKE '%$query%'";
     $result = $conn->query($sql);
 }
 ?>
