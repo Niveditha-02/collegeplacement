@@ -105,6 +105,64 @@ img:hover{
     </div>
 </body>
                     
+<?php
+if (isset($_GET['q'])) {
+    $query = htmlspecialchars($_GET['q']); // Get the search query and sanitize it
+
+    // Connect to the database (replace with your database connection details)
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "search_db";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // SQL query to search the database
+    $sql = "SELECT * FROM search_table WHERE title LIKE '%$query%' OR description LIKE '%$query%'";
+    $result = $conn->query($sql);
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="search-container">
+        <h1>Search Results</h1>
+        <form action="view.php" method="GET" class="search-form">
+            <input type="text" name="q" class="search-input" value="<?php echo $query; ?>" placeholder="Search...">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+        
+        <?php
+        if (isset($result)) {
+            if ($result->num_rows > 0) {
+                echo "<ul>";
+                while($row = $result->fetch_assoc()) {
+                    echo "<li>" . $row['title'] . ": " . $row['description'] . "</li>";
+                }
+                echo "</ul>";
+            } else {
+                echo "No results found.";
+            }
+        }
+        $conn->close();
+        ?>
+    </div>
+</body>
+</html>
+
+
+                    
 
     <?php echo $deleteMsg??''; ?>
       <table class="table table-bordered" border="2">
