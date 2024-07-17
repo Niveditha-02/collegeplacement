@@ -80,25 +80,25 @@ img:hover{
     <div class="container">
         <h2>Search Students</h2>
         <form action="search.php" method="POST">
-            <label for="branch">Branch:</label>
+            <label for="branch">name:</label>
             <select name="branch" id="branch">
-                <option value="">Select Branch</option>
+                <option value="">Select Name</option>
                 <option value="CSE">CSE</option>
                 <option value="ECE">ECE</option>
                 <option value="ME">ME</option>
                 <option value="CE">CE</option>
             </select>
-            <label for="semester">Semester:</label>
-            <select name="semester" id="semester">
-                <option value="">Select Semester</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+            <label for="sid">Sid:</label>
+            <select name="sid" id="sid">
+                <option value="">Select Sid</option>
+                <option value="1">169</option>
+                <option value="2">176</option>
+                <option value="3">188</option>
+<!--                 <option value="4"></option>
                 <option value="5">5</option>
                 <option value="6">6</option>
                 <option value="7">7</option>
-                <option value="8">8</option>
+                <option value="8">8</option> -->
             </select>
             <button type="submit">Search</button>
         </form>
@@ -106,6 +106,8 @@ img:hover{
 </body>
                     
 <?php
+$query = ''; // Initialize the query variable
+
 if (isset($_GET['q'])) {
     $query = htmlspecialchars($_GET['q']); // Get the search query and sanitize it
 
@@ -113,7 +115,7 @@ if (isset($_GET['q'])) {
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = 'placement";
+    $dbname = "placement"; // Replace with your actual database name
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -121,18 +123,25 @@ if (isset($_GET['q'])) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // SQL query to search the database
-    $sql = "SELECT * FROM student WHERE branch LIKE '%$query%' OR sem LIKE '%$query%'";
+    // SQL query to search the database for studentname and sid
+    $sql = "SELECT * FROM students WHERE branch LIKE '%$query%' OR sid LIKE '%$query%'";
     $result = $conn->query($sql);
 }
 ?>
 
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
     <div class="search-container">
         <h1>Search Results</h1>
         <form action="view.php" method="GET" class="search-form">
-            <input type="text" name="q" class="search-input" value="<?php echo $query; ?>" placeholder="Search...">
+            <input type="text" name="q" class="search-input" value="<?php echo htmlspecialchars($query); ?>" placeholder="Search...">
             <button type="submit" class="search-button">Search</button>
         </form>
         
@@ -140,18 +149,22 @@ if (isset($_GET['q'])) {
         if (isset($result)) {
             if ($result->num_rows > 0) {
                 echo "<ul>";
-                while($row = $result->fetch_assoc()) {
-                    echo "<li>" . $row['branch'] . ": " . $row['sem'] . "</li>";
+                while ($row = $result->fetch_assoc()) {
+                    echo "<li>" . htmlspecialchars($row['branch']) . " (ID: " . htmlspecialchars($row['sid']) . ")</li>";
                 }
                 echo "</ul>";
             } else {
                 echo "No results found.";
             }
         }
-        $conn->close();
+        if (isset($conn)) {
+            $conn->close();
+        }
         ?>
     </div>
 </body>
+</html>
+
 
 
                     
