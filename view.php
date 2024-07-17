@@ -43,6 +43,69 @@ img:hover{
     <div class="div-img">              
     <a href="a_app.php"><img src="images/back.png"></a>
     </div>
+
+
+                    
+    <title>Student Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label, select, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+<body>
+    <div class="container">
+        <h2>Search Students</h2>
+        <form action="search.php" method="POST">
+            <label for="branch">Branch:</label>
+            <select name="branch" id="branch">
+                <option value="">Select Branch</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="ME">ME</option>
+                <option value="CE">CE</option>
+            </select>
+            <label for="semester">Semester:</label>
+            <select name="semester" id="semester">
+                <option value="">Select Semester</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</body>
+                    
+
     <?php echo $deleteMsg??''; ?>
       <table class="table table-bordered" border="2">
        <thead>
