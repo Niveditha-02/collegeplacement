@@ -66,7 +66,7 @@ include("templates/header.php");
 
 <div class="search-container">
     <form action="view.php" method="GET" class="search-form">
-        <input type="text" name="q" class="search-input" value="<?php echo htmlspecialchars($query ?? ''); ?>" placeholder="Search by Name or ID...">
+        <input type="text" name="q" class="search-input" value="<?php echo htmlspecialchars($query ?? ''); ?>" placeholder="Search by branch or sem...">
         <button type="submit" class="search-button">Search</button>
     </form>
 </div>
