@@ -87,19 +87,19 @@ img:hover{
                 <option value="ECE">ECE</option>
                 <option value="ME">ME</option>
                 <option value="CE">CE</option>
-            </select>
-            <label for="sid">Sid:</label>
-            <select name="sid" id="sid">
-                <option value="">Select Sid</option>
-                <option value="1">169</option>
-                <option value="2">176</option>
-                <option value="3">188</option>
-<!--                 <option value="4"></option>
+<!--             </select>
+            <label for="sem">Semester:</label>
+            <select name="sem" id="sem">
+                <option value="">Select Semester</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                 <option value="4"></option>
                 <option value="5">5</option>
                 <option value="6">6</option>
                 <option value="7">7</option>
                 <option value="8">8</option> -->
-            </select>
+            </select> -->
             <button type="submit">Search</button>
         </form>
     </div>
