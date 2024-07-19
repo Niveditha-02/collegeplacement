@@ -112,23 +112,23 @@ include("templates/header.php");
                                                 $result = mysqli_query($conn, $query);
                                                 $sn = 1;
                                                 <?php echo $deleteMsg??''; ?>
-      <table class="table table-bordered" border="2">
-       <thead>
-        <tr bgcolor="#D3D3D3">
-         <th>S.N</th>
-         <th>Name</th>
-         <th>Last Name </th>
-         <th>Student ID </th>
-         <th>Password </th>
-         <th>Semester </th>
-         <th>Branch </th>
-         <th>Branch ID </th>
-         <th>Gender</th>
-         <th>Mobile Number</th>
-         <th>Email</th> 
-         <th>Address</th>  
-    </thead>
-    <tbody>
+    //   <table class="table table-bordered" border="2">
+    //    <thead>
+    //     <tr bgcolor="#D3D3D3">
+    //      <th>S.N</th>
+    //      <th>Name</th>
+    //      <th>Last Name </th>
+    //      <th>Student ID </th>
+    //      <th>Password </th>
+    //      <th>Semester </th>
+    //      <th>Branch </th>
+    //      <th>Branch ID </th>
+    //      <th>Gender</th>
+    //      <th>Mobile Number</th>
+    //      <th>Email</th> 
+    //      <th>Address</th>  
+    // </thead>
+    // <tbody>
 
      while($row=mysqli_fetch_row($r)) 
      {
