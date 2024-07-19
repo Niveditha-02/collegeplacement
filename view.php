@@ -108,6 +108,7 @@ include("templates/header.php");
 
                                                 $conn = mysqli_connect("localhost", "root", "", "placement");
                                                 $query = "SELECT * FROM student WHERE branch = '$branch'";
+                                                //$query ="SELECT *FROM student;
                                                 $result = mysqli_query($conn, $query);
                                                 $sn = 1;
                                                 while ($row = mysqli_fetch_assoc($result)) {
@@ -131,6 +132,56 @@ include("templates/header.php");
                                                 echo '</table>';
                                             }
                                             ?>
+
+
+
+                                            
+                                                <?php
+     $conn = mysqli_connect("localhost", "root", "", "placement");
+     $query="select * from student"; 
+     $r=mysqli_query($conn,$query);
+     $sn=1;
+     while($row=mysqli_fetch_row($r)) 
+     {
+          echo "<tr>";  echo "<td>";
+          echo $sn; echo "</td>";
+          $sn++;
+
+         echo "<td>";
+         echo $row[0]; echo "</td>";
+       
+         echo "<td>";
+         echo $row[1]; echo "</td>";
+
+         echo "<td>";
+         echo $row[2]; echo "</td>";
+
+         echo "<td>";
+         echo $row[3]; echo "</td>";
+
+         echo "<td>";
+         echo $row[4]; echo "</td>";
+
+         echo "<td>";
+         echo $row[5]; echo "</td>";
+
+         echo "<td>";
+         echo $row[6]; echo "</td>";
+
+         echo "<td>";
+         echo $row[7]; echo "</td>";
+
+         echo "<td>";
+         echo $row[8]; echo "</td>";
+
+         echo "<td>";
+         echo $row[9]; echo "</td>";
+
+         echo "<td>";
+         echo $row[10]; echo "</td>";
+     }
+ ?>
+
                                         </table>
                                     </div>
                                 </div>
