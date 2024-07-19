@@ -83,14 +83,14 @@ if (isset($_GET['q'])) {
     $password = "";
     $dbname = "placement"; // Replace with your actual database name
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli("localhost", "root", "", "placement");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
     // SQL query to search the database for studentname and sid
-    $sql = "SELECT * FROM student WHERE studentname LIKE '%$query%' OR sid LIKE '%$query%'";
+    $sql = "SELECT * FROM student WHERE branch LIKE '%$query%' OR semester LIKE '%$query%'";
     $result = $conn->query($sql);
 
     if ($result === false) {
