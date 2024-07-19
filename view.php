@@ -105,6 +105,7 @@ img:hover{
     </div>
 </body>
 
+                    
 
 
     <?php echo $deleteMsg??''; ?>
@@ -170,6 +171,55 @@ img:hover{
          echo $row[10]; echo "</td>";
      }
  ?>
+
+      <?php
+                                            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                                $branch = $_POST['branch'];
+                                                echo "<h3>Showing results for branch: " . htmlspecialchars($branch) . "</h3>";
+                                                echo '<table class="table table-bordered" border="2">';
+                                                echo '<thead>';
+                                                echo '<tr bgcolor="#D3D3D3">';
+                                                echo '<th>S.N</th>';
+                                                echo '<th>Name</th>';
+                                                echo '<th>Last Name</th>';
+                                                echo '<th>Student ID</th>';
+                                                echo '<th>Password</th>';
+                                                echo '<th>Semester</th>';
+                                                echo '<th>Branch</th>';
+                                                echo '<th>Branch ID</th>';
+                                                echo '<th>Gender</th>';
+                                                echo '<th>Mobile Number</th>';
+                                                echo '<th>Email</th>';
+                                                echo '<th>Address</th>';
+                                                echo '</tr>';
+                                                echo '</thead>';
+                                                echo '<tbody>';
+
+                                                $conn = mysqli_connect("localhost", "root", "", "placement");
+                                                $query = "SELECT * FROM student WHERE branch = '$branch'";
+                                                $result = mysqli_query($conn, $query);
+                                                $sn = 1;
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                    echo "<tr>";
+                                                    echo "<td>" . $sn . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['last_name']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['student_id']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['password']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['semester']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['branch']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['branch_id']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['gender']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['mobile_number']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['email']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['address']) . "</td>";
+                                                    echo "</tr>";
+                                                    $sn++;
+                                                }
+                                                echo '</tbody>';
+                                                echo '</table>';
+                                            }
+                                            ?>
  
 </tr>
 
