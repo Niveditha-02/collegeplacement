@@ -25,23 +25,6 @@ include("templates/header.php");
     img:hover {
         transform: scale(2);
     }
-    .search-container {
-        margin: 20px 0;
-    }
-    .search-input {
-        width: 80%;
-        padding: 10px;
-        margin-right: 10px;
-    }
-    .search-button {
-        padding: 10px;
-        background-color: #28a745;
-        color: white;
-        border: none;
-    }
-    .search-button:hover {
-        background-color: #218838;
-    }
 </style>
 </head>
 <body>
@@ -63,89 +46,122 @@ include("templates/header.php");
 </div>
 
 <title>Search</title>
-
-<div class="search-container">
-    <form action="view.php" method="GET" class="search-form">
-        <input type="text" name="q" class="search-input" value="<?php echo htmlspecialchars($query ?? ''); ?>" placeholder="Search by branch or sem...">
-        <button type="submit" class="search-button">Search</button>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    label, select, input {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #218838;
+    }
+</style>
+<div class="container">
+    <h2>Search Students</h2>
+    <form method="POST" action="">
+        <label for="branch">Branch:</label>
+        <select name="branch" id="branch">
+            <option value="">Select Branch</option>
+            <option value="CSE">CSE</option>
+            <option value="ECE">ECE</option>
+            <option value="ME">ME</option>
+            <option value="CE">CE</option>
+        </select>
+        
+        <label for="semester">Semester:</label>
+        <select name="semester" id="semester">
+            <option value="">Select Semester</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+        </select>
+        
+        <button type="submit" name="search">Search</button>
     </form>
 </div>
 
 <?php
-$query = ''; // Initialize the query variable
-
-if (isset($_GET['q'])) {
-    $query = htmlspecialchars($_GET['q']); // Get the search query and sanitize it
-
-    // Connect to the database
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "placement"; // Replace with your actual database name
-
-    $conn = new mysqli("localhost", "root", "", "placement");
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+if(isset($_POST['search'])){
+    $branch = $_POST['branch'];
+    $semester = $_POST['semester'];
+    
+    $query = "SELECT * FROM student WHERE 1";
+    
+    if($branch != ""){
+        $query .= " AND branch='$branch'";
     }
-
-    // SQL query to search the database for studentname and sid
-    $sql = "SELECT * FROM student WHERE branch LIKE '%$query%' OR semester LIKE '%$query%'";
-    $result = $conn->query($sql);
-
-    if ($result === false) {
-        echo "Error: " . $conn->error;
+    
+    if($semester != ""){
+        $query .= " AND semester='$semester'";
     }
+    
+    $result = mysqli_query($conn, $query);
+}
+else{
+    $query = "SELECT * FROM student";
+    $result = mysqli_query($conn, $query);
+}
+
+echo $deleteMsg??'';
+?>
+<table class="table table-bordered" border="2">
+<thead>
+<tr bgcolor="#D3D3D3">
+    <th>S.N</th>
+    <th>Name</th>
+    <th>Last Name</th>
+    <th>Student ID</th>
+    <th>Password</th>
+    <th>Semester</th>
+    <th>Branch</th>
+    <th>Branch ID</th>
+    <th>Gender</th>
+    <th>Mobile Number</th>
+    <th>Email</th>
+    <th>Address</th>
+</tr>
+</thead>
+<tbody>
+<?php
+$conn = mysqli_connect("localhost", "root", "", "placement");
+$query="select * from student"; 
+$r=mysqli_query($conn,$query);
+$sn = 1;
+while($row = mysqli_fetch_assoc($result)) {
+    echo "<tr>";
+    echo "<td>" . $sn++ . "</td>";
+    echo "<td>" . $row['name'] . "</td>";
+    echo "<td>" . $row['last_name'] . "</td>";
+    echo "<td>" . $row['student_id'] . "</td>";
+    echo "<td>" . $row['password'] . "</td>";
+    echo "<td>" . $row['semester'] . "</td>";
+    echo "<td>" . $row['branch'] . "</td>";
+    echo "<td>" . $row['branch_id'] . "</td>";
+    echo "<td>" . $row['gender'] . "</td>";
+    echo "<td>" . $row['mobile_number'] . "</td>";
+    echo "<td>" . $row['email'] . "</td>";
+    echo "<td>" . $row['address'] . "</td>";
+    echo "</tr>";
 }
 ?>
-
-<?php echo $deleteMsg??''; ?>
-<table class="table table-bordered" border="2">
-    <thead>
-        <tr bgcolor="#D3D3D3">
-            <th>S.N</th>
-            <th>Name</th>
-            <th>Last Name</th>
-            <th>Student ID</th>
-            <th>Password</th>
-            <th>Semester</th>
-            <th>Branch</th>
-            <th>Branch ID</th>
-            <th>Gender</th>
-            <th>Mobile Number</th>
-            <th>Email</th>
-            <th>Address</th>
-        </tr>
-    </thead>
-    <tbody>
-    <?php
-    if (isset($result) && $result !== false) { // Check if the result is set and the query execution was successful
-        $sn = 1;
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>" . $sn . "</td>";
-            $sn++;
-
-            echo "<td>" . htmlspecialchars($row['studentname']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['lastname']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['sid']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['password']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['semester']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['branch']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['branch_id']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['gender']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['mobile_number']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['email']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['address']) . "</td>";
-            echo "</tr>";
-        }
-    }
-    if (isset($conn)) {
-        $conn->close();
-    }
-    ?>
-    </tbody>
+</tbody>
 </table>
+
 </font>
 </body>
 </html>
