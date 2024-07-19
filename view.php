@@ -109,8 +109,8 @@ img:hover{
 <?php
 $query = ''; // Initialize the query variable
 
-if (isset($_GET['branch'])) {
-    $query = htmlspecialchars($_GET['branch']); // Get the search query and sanitize it
+if (isset($_GET['q'])) {
+    $query = htmlspecialchars($_GET['q']); // Get the search query and sanitize it
 
     // Connect to the database (replace with your database connection details)
     $servername = "localhost";
@@ -142,16 +142,16 @@ if (isset($_GET['branch'])) {
     <div class="search-container">
         <h1>Search Results</h1>
         <form action="view.php" method="GET" class="search-form">
-            <input type="text" name="branch" class="search-input" value="<?php echo htmlspecialchars($query); ?>" placeholder="Search...">
+            <input type="text" name="q" class="search-input" value="<?php echo htmlspecialchars($query); ?>" placeholder="Search...">
             <button type="submit" class="search-button">Search</button>
         </form>
         
         <?php
         if (isset($result)) {
-            if ($result->branch > 0) {
+            if ($result->q > 0) {
                 echo "<ul>";
                 while ($row = $result->fetch_assoc()) {
-                    echo "<li>" . htmlspecialchars($row['branch']) . " (ID: " . htmlspecialchars($row['sid']) . ")</li>";
+                    echo "<li>" . htmlspecialchars($row['q']) . " (ID: " . htmlspecialchars($row['sid']) . ")</li>";
                 }
                 echo "</ul>";
             } else {
