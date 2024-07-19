@@ -170,9 +170,7 @@ img:hover{
          echo "<td>";
          echo $row[10]; echo "</td>";
      }
- ?>
-
-      <?php
+ 
                                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                 $branch = $_POST['branch'];
                                                 echo "<h3>Showing results for branch: " . htmlspecialchars($branch) . "</h3>";
