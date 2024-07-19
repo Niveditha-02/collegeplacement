@@ -1,6 +1,12 @@
 <?php
 include("config/db_connect.php");
 include("templates/header.php");
+
+// Debugging: Print the structure of the student table
+$result = mysqli_query($conn, "DESCRIBE student");
+while ($row = mysqli_fetch_assoc($result)) {
+    echo $row['Field'] . "<br>";
+}
 ?>
 
 <!DOCTYPE html>
