@@ -111,10 +111,18 @@ if(isset($_POST['search'])){
     }
     
     $result = mysqli_query($conn, $query);
+
+    if(!$result){
+        die("Query Failed: " . mysqli_error($conn));
+    }
 }
 else{
     $query = "SELECT * FROM student";
     $result = mysqli_query($conn, $query);
+
+    if(!$result){
+        die("Query Failed: " . mysqli_error($conn));
+    }
 }
 
 echo $deleteMsg??'';
@@ -138,48 +146,22 @@ echo $deleteMsg??'';
 </thead>
 <tbody>
 <?php
-$conn = mysqli_connect("localhost", "root", "", "placement");
-$query="select * from student"; 
-$r=mysqli_query($conn,$query);
 $sn = 1;
 while($row = mysqli_fetch_assoc($result)) {
-        echo "<tr>";  echo "<td>";
-        echo $sn; echo "</td>";
-          $sn++;
-
-         echo "<td>";
-         echo $row[0]; echo "</td>";
-       
-         echo "<td>";
-         echo $row[1]; echo "</td>";
-
-         echo "<td>";
-         echo $row[2]; echo "</td>";
-
-         echo "<td>";
-         echo $row[3]; echo "</td>";
-
-         echo "<td>";
-         echo $row[4]; echo "</td>";
-
-         echo "<td>";
-         echo $row[5]; echo "</td>";
-
-         echo "<td>";
-         echo $row[6]; echo "</td>";
-
-         echo "<td>";
-         echo $row[7]; echo "</td>";
-
-         echo "<td>";
-         echo $row[8]; echo "</td>";
-
-         echo "<td>";
-         echo $row[9]; echo "</td>";
-
-         echo "<td>";
-         echo $row[10]; echo "</td>";
-   
+    echo "<tr>";
+    echo "<td>" . $sn++ . "</td>";
+    echo "<td>" . $row['name'] . "</td>";
+    echo "<td>" . $row['last_name'] . "</td>";
+    echo "<td>" . $row['student_id'] . "</td>";
+    echo "<td>" . $row['password'] . "</td>";
+    echo "<td>" . $row['semester'] . "</td>";
+    echo "<td>" . $row['branch'] . "</td>";
+    echo "<td>" . $row['branch_id'] . "</td>";
+    echo "<td>" . $row['gender'] . "</td>";
+    echo "<td>" . $row['mobile_number'] . "</td>";
+    echo "<td>" . $row['email'] . "</td>";
+    echo "<td>" . $row['address'] . "</td>";
+    echo "</tr>";
 }
 ?>
 </tbody>
