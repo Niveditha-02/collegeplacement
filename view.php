@@ -28,14 +28,14 @@ include("templates/header.php");
         body {
             font-family: Arial, sans-serif;
         }
-        .container {
+/*         .container {
             max-width: 600px;
             margin: 50px auto;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+        } */
         label, select, input {
             display: block;
             width: 100%;
@@ -136,7 +136,27 @@ include("templates/header.php");
 
 
                                             
-                                                <?php
+
+      <?php echo $deleteMsg??''; ?>
+      <table class="table table-bordered" border="2">
+       <thead>
+        <tr bgcolor="#D3D3D3">
+         <th>S.N</th>
+         <th>Name</th>
+         <th>Last Name </th>
+         <th>Student ID </th>
+         <th>Password </th>
+         <th>Semester </th>
+         <th>Branch </th>
+         <th>Branch ID </th>
+         <th>Gender</th>
+         <th>Mobile Number</th>
+         <th>Email</th> 
+         <th>Address</th>  
+    </thead>
+    <tbody>
+        
+    <?php
      $conn = mysqli_connect("localhost", "root", "", "placement");
      $query="select * from student"; 
      $r=mysqli_query($conn,$query);
