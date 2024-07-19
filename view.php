@@ -46,7 +46,7 @@ img:hover{
 
 
                     
-    <title>Student Search</title>
+    <title>Search</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -82,7 +82,7 @@ img:hover{
         <form action="search.php" method="POST">
             <label for="branch">name:</label>
             <select name="branch" id="branch">
-                <option value="">Select Name</option>
+                <option value="">Select Branch</option>
                 <option value="CSE">CSE</option>
                 <option value="ECE">ECE</option>
                 <option value="ME">ME</option>
@@ -104,6 +104,7 @@ img:hover{
         </form>
     </div>
 </body>
+
                     
 <?php
 $query = ''; // Initialize the query variable
@@ -117,7 +118,7 @@ if (isset($_GET['branch'])) {
     $password = "";
     $dbname = "placement"; // Replace with your actual database name
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli("localhost", "root", "", "placement");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
