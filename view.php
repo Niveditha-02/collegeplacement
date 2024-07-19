@@ -108,36 +108,10 @@ include("templates/header.php");
 
                                                 $conn = mysqli_connect("localhost", "root", "", "placement");
                                                 $query = "SELECT * FROM student WHERE branch = '$branch'";
-                                                //$query ="SELECT *FROM student;
+                                                $query ="SELECT *FROM student;
                                                 $result = mysqli_query($conn, $query);
                                                 $sn = 1;
-                                                while ($row = mysqli_fetch_assoc($result)) {
-                                                    echo "<tr>";
-                                                    echo "<td>" . $sn . "</td>";
-                                                    echo "<td>" . htmlspecialchars($row['name']) . "</td>";
-                                                    echo "<td>" . htmlspecialchars($row['last_name']) . "</td>";
-                                                    echo "<td>" . htmlspecialchars($row['student_id']) . "</td>";
-                                                    echo "<td>" . htmlspecialchars($row['password']) . "</td>";
-                                                    echo "<td>" . htmlspecialchars($row['semester']) . "</td>";
-                                                    echo "<td>" . htmlspecialchars($row['branch']) . "</td>";
-                                                    echo "<td>" . htmlspecialchars($row['branch_id']) . "</td>";
-                                                    echo "<td>" . htmlspecialchars($row['gender']) . "</td>";
-                                                    echo "<td>" . htmlspecialchars($row['mobile_number']) . "</td>";
-                                                    echo "<td>" . htmlspecialchars($row['email']) . "</td>";
-                                                    echo "<td>" . htmlspecialchars($row['address']) . "</td>";
-                                                    echo "</tr>";
-                                                    $sn++;
-                                                }
-                                                echo '</tbody>';
-                                                echo '</table>';
-                                            }
-                                            ?>
-
-
-
-                                            
-
-      <?php echo $deleteMsg??''; ?>
+                                                <?php echo $deleteMsg??''; ?>
       <table class="table table-bordered" border="2">
        <thead>
         <tr bgcolor="#D3D3D3">
@@ -155,12 +129,7 @@ include("templates/header.php");
          <th>Address</th>  
     </thead>
     <tbody>
-        
-    <?php
-     $conn = mysqli_connect("localhost", "root", "", "placement");
-     $query="select * from student"; 
-     $r=mysqli_query($conn,$query);
-     $sn=1;
+
      while($row=mysqli_fetch_row($r)) 
      {
           echo "<tr>";  echo "<td>";
@@ -201,6 +170,38 @@ include("templates/header.php");
          echo $row[10]; echo "</td>";
      }
  ?>
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                    echo "<tr>";
+                                                    echo "<td>" . $sn . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['last_name']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['student_id']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['password']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['semester']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['branch']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['branch_id']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['gender']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['mobile_number']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['email']) . "</td>";
+                                                    echo "<td>" . htmlspecialchars($row['address']) . "</td>";
+                                                    echo "</tr>";
+                                                    $sn++;
+                                                }
+                                                echo '</tbody>';
+                                                echo '</table>';
+                                            }
+                                            
+
+
+
+                                            
+
+      
+        
+
+        
+     
+    
 
                                         </table>
                                     </div>
