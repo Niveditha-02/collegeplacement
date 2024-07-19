@@ -114,47 +114,7 @@ include("templates/header.php");
                                                 <?php echo $deleteMsg??''; ?>
      
    
-     while($row=mysqli_fetch_row($r)) 
-     {
-          echo "<tr>";  echo "<td>";
-          echo $sn; echo "</td>";
-          $sn++;
-
-         echo "<td>";
-         echo $row[0]; echo "</td>";
-       
-         echo "<td>";
-         echo $row[1]; echo "</td>";
-
-         echo "<td>";
-         echo $row[2]; echo "</td>";
-
-         echo "<td>";
-         echo $row[3]; echo "</td>";
-
-         echo "<td>";
-         echo $row[4]; echo "</td>";
-
-         echo "<td>";
-         echo $row[5]; echo "</td>";
-
-         echo "<td>";
-         echo $row[6]; echo "</td>";
-
-         echo "<td>";
-         echo $row[7]; echo "</td>";
-
-         echo "<td>";
-         echo $row[8]; echo "</td>";
-
-         echo "<td>";
-         echo $row[9]; echo "</td>";
-
-         echo "<td>";
-         echo $row[10]; echo "</td>";
-     }
- ?>
-                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                     while ($row = mysqli_fetch_assoc($result)) {
                                                     echo "<tr>";
                                                     echo "<td>" . $sn . "</td>";
                                                     echo "<td>" . htmlspecialchars($row['name']) . "</td>";
