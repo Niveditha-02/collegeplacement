@@ -53,7 +53,7 @@ img:hover{
 <!--                             <h2>Search Students</h2> -->
                             <form method="POST" action="">
                                 <label for="package"><h4>Search Package:</h4></label>
-                                <input type="text" id="package" name="package" placeholder="Enter Package">
+                                <input type="text" id="package" name="package">
 
                                <label for="type"><h4>Search type:</h4></label>
 <!--                                 <input type="text" id="type" name="type" placeholder="Enter type"> -->
