@@ -73,8 +73,8 @@ include("templates/header.php");
                         <div class="container">
                             <h2>Search Students</h2>
                             <form method="POST" action="">
-                                <label for="student_id">Search by Student ID:</label>
-                                <input type="text" id="student_id" name="student_id" placeholder="Enter Student ID">
+                                <label for="sid">Search by Student ID:</label>
+                                <input type="text" id="sid" name="sid" placeholder="Enter Student ID">
                                 
                                 <label for="branch">Select Branch:</label>
                                 <select id="branch" name="branch">
@@ -113,11 +113,11 @@ include("templates/header.php");
 
                             // Check if the form is submitted
                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                                $student_id = $_POST['student_id'];
+                                $sid = $_POST['sid'];
                                 $branch = $_POST['branch'];
 
-                                if (!empty($student_id)) {
-                                    $query = "SELECT * FROM student WHERE student_id = '$student_id'";
+                                if (!empty($sid)) {
+                                    $query = "SELECT * FROM student WHERE sid = '$sid'";
                                 } elseif (!empty($branch)) {
                                     $query = "SELECT * FROM student WHERE branch = '$branch'";
                                 } else {
