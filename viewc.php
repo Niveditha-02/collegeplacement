@@ -43,6 +43,30 @@ img:hover{
     <div class="div-img">              
     <a href="a_app.php"><img src="images/back.png"></a>
     </div>
+
+
+                  <head>
+                        <title>Student Search</title>
+                    </head>
+                    <body>
+                        <div class="container">
+                            <h2>Search Students</h2>
+                            <form method="POST" action="">
+                                <label for="package">Search Package:</label>
+                                <input type="text" id="package" name="package" placeholder="Enter Package">
+                                
+                                <label for="type">Select Type:</label>
+                                <select id="type" name="type">
+                                    <option value="">All</option>
+                                    <option value="Product">Product</option>
+                                    <option value="service">service</option>
+                                    <!-- Add other branches as needed -->
+                                </select>
+                                <button type="submit">Search</button>
+                            </form>
+                        </div>
+
+                    
     <?php echo $deleteMsg??''; ?>
       <table class="table table-bordered" border="2">
        <thead>
@@ -52,45 +76,59 @@ img:hover{
          <th>Name </th>
          <th>Type </th>
          <th>Package </th>
+
+         </tr>
+         </thead>
+         <tbody>
+         <?php
+         $conn = mysqli_connect("localhost", "root", "", "placement");
+
+                            // Check if the form is submitted
+                            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                $package = $_POST['package'];
+                                $type = $_POST['type'];
+
+                                if (!empty($package)) {
+                                    $query = "SELECT * FROM company WHERE package = '$package'";
+                                } elseif (!empty($type)) {
+                                    $query = "SELECT * FROM company WHERE type = '$type'";
+                                } else {
+                                    $query = "SELECT * FROM company";
+                                }
+                            } else {
+                                $query = "SELECT * FROM company";
+                            }
+
+                            $result = mysqli_query($conn, $query);
+                            $sn = 1;
+
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_row($result)) {
+                                    echo "<tr>";
+                                    echo "<td>".$sn."</td>";
+                                    $sn++;
+                                    for ($i = 0; $i < count($row); $i++) {
+                                        echo "<td>".$row[$i]."</td>";
+                                    }
+                                    echo "</tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='12' style='text-align:center;'>Not Found</td></tr>";
+                            }
+                            ?>
+                            </tbody>
+                        </table>
+                    </body>
+                </html>
+                </font>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html> 
+
+
+                    
         
-    </thead>
-    <tbody>
-    <?php
-     $conn = mysqli_connect("localhost", "root", "", "placement");
-     $query="select * from company"; 
-     $r=mysqli_query($conn,$query);
-     $sn=1;
-     while($row=mysqli_fetch_row($r)) 
-     {
-          echo "<tr>";  echo "<td>";
-          echo $sn; echo "</td>";
-          $sn++;
-
-         echo "<td>";
-         echo $row[0]; echo "</td>";
-       
-         echo "<td>";
-         echo $row[1]; echo "</td>";
-
-         echo "<td>";
-         echo $row[2]; echo "</td>";
-
-         echo "<td>";
-         echo $row[3]; echo "</td>";
-
-     }
- ?>
-</tr>
-
-</table>
-    </font>
-</body>
-</html>
-    </tbody>
-     </table>
-   </div>
-</div>
-</div>
-</div>
-</body>
-</html>
