@@ -52,24 +52,24 @@ img:hover{
                         <div class="container">
 <!--                             <h2>Search Students</h2> -->
                             <form method="POST" action="">
-                                <label for="package"><h4>Search Package:</h4></label>
-                                <input type="text" id="package" name="package" placeholder="Enter type">
+<!--                                 <label for="package"><h4>Search Package:</h4></label> -->
+                                <input type="text" id="package" name="package" placeholder="Enter Package">
 
-                               <label for="type"><h4>Search type:</h4></label>
-                                    <select name="type" id="type">
+<!--                                <label for="type"><h4>Search type:</h4></label> -->
+<!--                                     <select name="type" id="type">
                                          <option value="" name="">All</option>  
                                          <option value="Product" name="type">Product</option>    
                                          <option value="service" name="type">service</option>
                                     </select>
-                              <br> 
-<!--                                 <input type="text" id="type" name="type" > -->
+                              <br>  -->
+                                <input type="text" id="type" name="type" placeholder="Enter Type">
 <!--                                 <label for="type">Select Type:</label> -->
 <!--                                  <select id="type" name="type">
                                      <option value="">All</option>
                                      <option value="Product">Product</option>
                                      <option value="service">service</option> 
 <!-- <!--                                     <!-- Add other branches as needed -->
-<!--                                  </select> <br> --> -->
+                                 </select> <br>
                               
                                 <button type="submit">Search</button>
                             </form>
