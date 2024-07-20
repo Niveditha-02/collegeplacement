@@ -53,17 +53,17 @@ img:hover{
 <!--                             <h2>Search Students</h2> -->
                             <form method="POST" action="">
                                 <label for="package"><h4>Search Package:</h4></label>
-                                <input type="text" id="package" name="package">
+                                <input type="text" id="package" name="package" placeholder="Enter type">
 
                                <label for="type"><h4>Search type:</h4></label>
-<!--                                 <input type="text" id="type" name="type" placeholder="Enter type"> -->
+<!--                                 <input type="text" id="type" name="type" > -->
 <!--                                 <label for="type">Select Type:</label> -->
-                                 <select id="type" name="type" placeholder="Enter type">
-                                 <option value="">All</option>
-                                 <option value="Product">Product</option>
-                                 <option value="service">service</option> 
+<!--                                  <select id="type" name="type">
+                                     <option value="">All</option>
+                                     <option value="Product">Product</option>
+                                     <option value="service">service</option> 
 <!-- <!--                                     <!-- Add other branches as needed -->
-                                </select> <br>
+<!--                                  </select> <br> --> -->
                               
                                 <button type="submit">Search</button>
                             </form>
