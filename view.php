@@ -25,6 +25,27 @@ include("templates/header.php");
     img:hover {
         transform: scale(2);
     }
+/*     .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    } */
+    label, select, input {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 </style>
 </head>
 <body>
@@ -47,43 +68,21 @@ include("templates/header.php");
 
                     <head>
                         <title>Student Search</title>
-                        <style>
-                            body {
-                                font-family: Arial, sans-serif;
-                            }
-/*                             .container {
-                                max-width: 600px;
-                                margin: 50px auto;
-                                padding: 20px;
-                                border: 1px solid #ccc;
-                                border-radius: 5px;
-                                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                            } */
-                            label, select, input {
-                                display: block;
-                                width: 100%;
-                                margin-bottom: 10px;
-                            }
-                            button {
-                                padding: 10px 20px;
-                                background-color: #28a745;
-                                color: white;
-                                border: none;
-                                border-radius: 5px;
-                                cursor: pointer;
-                            }
-                        </style>
                     </head>
                     <body>
                         <div class="container">
-                            <h2>Search Students by Branch</h2>
+                            <h2>Search Students</h2>
                             <form method="POST" action="">
+                                <label for="student_id">Search by Student ID:</label>
+                                <input type="text" id="student_id" name="student_id" placeholder="Enter Student ID">
+                                
                                 <label for="branch">Select Branch:</label>
                                 <select id="branch" name="branch">
                                     <option value="">All</option>
                                     <option value="CSE">CSE</option>
                                     <option value="ECE">ECE</option>
                                     <option value="ME">ME</option>
+                                    <option value="ISE">ISE</option>
                                     <!-- Add other branches as needed -->
                                 </select>
                                 <button type="submit">Search</button>
@@ -114,11 +113,15 @@ include("templates/header.php");
 
                             // Check if the form is submitted
                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                $student_id = $_POST['student_id'];
                                 $branch = $_POST['branch'];
-                                if ($branch == "") {
-                                    $query = "SELECT * FROM student";
-                                } else {
+
+                                if (!empty($student_id)) {
+                                    $query = "SELECT * FROM student WHERE student_id = '$student_id'";
+                                } elseif (!empty($branch)) {
                                     $query = "SELECT * FROM student WHERE branch = '$branch'";
+                                } else {
+                                    $query = "SELECT * FROM student";
                                 }
                             } else {
                                 $query = "SELECT * FROM student";
@@ -126,14 +129,19 @@ include("templates/header.php");
 
                             $result = mysqli_query($conn, $query);
                             $sn = 1;
-                            while ($row = mysqli_fetch_row($result)) {
-                                echo "<tr>";
-                                echo "<td>".$sn."</td>";
-                                $sn++;
-                                for ($i = 0; $i < count($row); $i++) {
-                                    echo "<td>".$row[$i]."</td>";
+
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_row($result)) {
+                                    echo "<tr>";
+                                    echo "<td>".$sn."</td>";
+                                    $sn++;
+                                    for ($i = 0; $i < count($row); $i++) {
+                                        echo "<td>".$row[$i]."</td>";
+                                    }
+                                    echo "</tr>";
                                 }
-                                echo "</tr>";
+                            } else {
+                                echo "<tr><td colspan='12' style='text-align:center;'>Not Found</td></tr>";
                             }
                             ?>
                             </tbody>
