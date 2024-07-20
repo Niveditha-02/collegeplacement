@@ -83,6 +83,9 @@ include("templates/header.php");
                                     <option value="ECE">ECE</option>
                                     <option value="ME">ME</option>
                                     <option value="ISE">ISE</option>
+                                    <option value="EEE">EEE</option>
+                                    <option value="AIML">AIML</option>
+                                    <option value="CV">CV</option>
                                     <!-- Add other branches as needed -->
                                 </select>
                                 <button type="submit">Search</button>
