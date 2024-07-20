@@ -56,6 +56,11 @@ img:hover{
                                 <input type="text" id="package" name="package" placeholder="Enter type">
 
                                <label for="type"><h4>Search type:</h4></label>
+                                    <select name="type" id="type">
+                                         <option value="" name="">All</option>  
+                                         <option value="Product" name="type">Product</option>    
+                                         <option value="service" name="type">service</option>
+                                    </select><br> 
 <!--                                 <input type="text" id="type" name="type" > -->
 <!--                                 <label for="type">Select Type:</label> -->
 <!--                                  <select id="type" name="type">
