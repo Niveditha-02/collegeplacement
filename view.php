@@ -71,12 +71,12 @@ include("templates/header.php");
                     </head>
                     <body>
                         <div class="container">
-                            <h2>Search</h2>
+<!--                             <h2>Search</h2> -->
                             <form method="POST" action="">
                                 <label for="sid"><h4>Search by Student ID:</h4></label>
                                 <input type="text" id="sid" name="sid" placeholder="Enter Student ID">
                                 
-                                <label for="branch">Select Branch:</label>
+                                <label for="branch"><h4>Select Branch:</h4></label>
                                 <select id="branch" name="branch">
                                     <option value="">All</option>
                                     <option value="CSE">CSE</option>
