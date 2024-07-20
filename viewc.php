@@ -59,9 +59,9 @@ img:hover{
 <!--                                 <input type="text" id="type" name="type" placeholder="Enter type">
                                 <label for="type">Select Type:</label> -->
                                 <select id="type" name="type">
-                                    <option value="">All</option>
-                                    <option value="Product">Product</option>
-                                    <option value="service">service</option>
+                                <option value="">All</option>
+                                <option value="Product">Product</option>
+                                <option value="service">service</option>
 <!--                                     <!-- Add other branches as needed -->
                                 </select> 
                               
