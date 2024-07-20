@@ -73,7 +73,7 @@ include("templates/header.php");
                         <div class="container">
                             <h2>Search</h2>
                             <form method="POST" action="">
-                                <label for="sid"><h3>Search by Student ID:</h3></label></label>
+                                <label for="sid"><h4>Search by Student ID:</h4></label>
                                 <input type="text" id="sid" name="sid" placeholder="Enter Student ID">
                                 
                                 <label for="branch">Select Branch:</label>
