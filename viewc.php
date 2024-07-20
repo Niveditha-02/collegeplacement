@@ -60,7 +60,8 @@ img:hover{
                                          <option value="" name="">All</option>  
                                          <option value="Product" name="type">Product</option>    
                                          <option value="service" name="type">service</option>
-                                    </select><br> 
+                                    </select>
+                              <br> 
 <!--                                 <input type="text" id="type" name="type" > -->
 <!--                                 <label for="type">Select Type:</label> -->
 <!--                                  <select id="type" name="type">
