@@ -89,7 +89,7 @@
   <div class="topnav">
     <a class="active" href="home.php">Home</a>
     <a href="adminLogin.php">Admin</a>
-    <a href="studentregister.php">Student Register</a>      
+    <a href="studentregister.html">Student Register</a>      
     <a href="studentlogin.php">Student Login</a>
    
     <a href="about.php">About</a>
