@@ -69,14 +69,16 @@ label, select, input {
                                 <input type="text" id="sid" name="sid" placeholder="Enter Student ID">
 <!--                                <input type="text" id="coursename" name="coursename" placeholder="Enter Course Name"> -->
                                 
-<!--                                 <label for="coursename">Select Course Name:</label>
+                                <label for="coursename">Select Course Name:</label>
                                 <select id="coursename" name="coursename">
                                     <option value="">All</option>
-                                    <option value="CSE">CSE</option>
-                                    <option value="ECE">ECE</option>
-                                    <option value="ME">ME</option> -->
+                                    <option value="DSA using Python">DSA using Python</option>
+                                    <option value="Relational Database">Relational Database</option>
+                                    <option value="Python">Python</option> 
+                                    <option value="PHP">PHP</option> 
+                                    <option value="C Programming">C Programming</option> 
                                     <!-- Add other branches as needed -->
-<!--                                 </select> -->
+                                </select>
                                 <button type="submit">Search</button>
                             </form>
                         </div>
@@ -101,12 +103,12 @@ label, select, input {
                             // Check if the form is submitted
                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 $sid = $_POST['sid'];
-                                // $coursename = $_POST['coursename'];
+                                $coursename = $_POST['coursename'];
 
                                 if (!empty($sid)) {
                                     $query = "SELECT * FROM rr WHERE sid = '$sid'";
-                                // } elseif (!empty($coursename)) {
-                                //     $query = "SELECT * FROM register WHERE coursename = '$coursename'";
+                                } elseif (!empty($coursename)) {
+                                    $query = "SELECT * FROM rr WHERE coursename = '$coursename'";
                                 } else {
                                     $query = "SELECT * FROM rr";
                                 }
