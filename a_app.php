@@ -109,7 +109,7 @@ img:hover{
 
     <div class="div-img">              
     <img src="images/stu.png"/>
-    <h4><b>Registered Students:</b></h4>
+    <h4><b>Course Registered Student:</b></h4>
     <div class="container">
       <br>
             <a class="btn btn-1" href="rview.php">view</a>
