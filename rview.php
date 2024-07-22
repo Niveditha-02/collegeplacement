@@ -69,7 +69,7 @@ label, select, input {
                                 <input type="text" id="sid" name="sid" placeholder="Enter Student ID">
 <!--                                <input type="text" id="coursename" name="coursename" placeholder="Enter Course Name"> -->
                                 
-                                <label for="coursename">Select Course Name:</label>
+                                <label for="coursename"><h4>Select Course Name:</h4></label>
                                 <select id="coursename" name="coursename">
                                     <option value="">All</option>
                                     <option value="DSA using Python">DSA using Python</option>
