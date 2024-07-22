@@ -105,8 +105,8 @@ label, select, input {
 
                             // Check if the form is submitted
                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                                $student_id = $_POST['sid'];
-                                $branch = $_POST['cname'];
+                                $sid = $_POST['sid'];
+                                $cname = $_POST['cname'];
 
                                 if (!empty($sid)) {
                                     $query = "SELECT * FROM placed WHERE sid = '$sid'";
