@@ -120,6 +120,13 @@ Email:
 <input type="submit" value="Add" class="btn1"/>  
 <input type="reset" value="Reset" class="btn2"/>  
 
+</form>  
+</div>
+</div>
+</body>
+</Html>
+<!-- </body>  
+</html>   -->
 
 
 
@@ -168,18 +175,4 @@ Email:
         }
    }
 ?>
-
-
-	
-
-</form>  
-</div>
-</div>
-</body>
-</Html>
-</body>  
-</html>  
-
-
-
 
