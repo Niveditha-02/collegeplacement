@@ -67,7 +67,7 @@ label, select, input {
                             <form method="POST" action="">
 <!--                                 <label for="student_id">Search by Student ID:</label> -->
                                 <input type="text" id="sid" name="sid" placeholder="Enter Student ID">
-                               <input type="text" id="coursename" name="coursename" placeholder="Enter Course Name">
+<!--                                <input type="text" id="coursename" name="coursename" placeholder="Enter Course Name"> -->
                                 
 <!--                                 <label for="coursename">Select Course Name:</label>
                                 <select id="coursename" name="coursename">
@@ -101,12 +101,12 @@ label, select, input {
                             // Check if the form is submitted
                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 $sid = $_POST['sid'];
-                                $coursename = $_POST['coursename'];
+                                // $coursename = $_POST['coursename'];
 
                                 if (!empty($sid)) {
                                     $query = "SELECT * FROM register WHERE sid = '$sid'";
-                                } elseif (!empty($coursename)) {
-                                    $query = "SELECT * FROM register WHERE coursename = '$coursename'";
+                                // } elseif (!empty($coursename)) {
+                                //     $query = "SELECT * FROM register WHERE coursename = '$coursename'";
                                 } else {
                                     $query = "SELECT * FROM register";
                                 }
