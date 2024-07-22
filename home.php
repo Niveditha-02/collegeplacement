@@ -100,7 +100,7 @@
       <span id="slide-3"></span>
       <div class="image-container">
         <img src="images/img3.jpg" class="slide" width="600" height="400" />
-        <img src="images/2024.jpg" class="slide" width="600" height="400" />
+        <img src="images/2024.jpeg" class="slide" width="600" height="400" />
         <img src="images/img2.jpg" class="slide" width="600" height="400" />
       </div>
       <div class="buttons">
