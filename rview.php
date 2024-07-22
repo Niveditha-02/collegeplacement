@@ -104,14 +104,14 @@ label, select, input {
                                 // $coursename = $_POST['coursename'];
 
                                 if (!empty($sid)) {
-                                    $query = "SELECT * FROM register WHERE sid = '$sid'";
+                                    $query = "SELECT * FROM rr WHERE sid = '$sid'";
                                 // } elseif (!empty($coursename)) {
                                 //     $query = "SELECT * FROM register WHERE coursename = '$coursename'";
                                 } else {
-                                    $query = "SELECT * FROM register";
+                                    $query = "SELECT * FROM rr";
                                 }
                             } else {
-                                $query = "SELECT * FROM register";
+                                $query = "SELECT * FROM rr";
                             }
 
                             $result = mysqli_query($conn, $query);
