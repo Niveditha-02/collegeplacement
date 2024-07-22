@@ -43,6 +43,22 @@ img:hover{
     <div class="div-img">              
     <a href="a_app.php"><img src="images/back.png"></a>
     </div>
+
+
+<head>
+                        <title>Student Search</title>
+                    </head>
+                    <body>
+                        <div class="container">
+<!--                             <h2>Search Students</h2> -->
+                            <form method="POST" action="">
+<!--                                 <label for="student_id">Search by Student ID:</label> -->
+                                <input type="text" id="coursename" name="coursename" placeholder="Enter Course Name ">
+                                <button type="submit">Search</button>
+                            </form>
+                        </div>
+
+                    
     <?php echo $deleteMsg??''; ?>
       <table class="table table-bordered" border="2">
        <thead>
@@ -52,33 +68,85 @@ img:hover{
          <th> Course Name </th>
          <th>Start-date</th>
          <th>Link </th>
-        
+       </tr>   
     </thead>
     <tbody>
-    <?php
-     $conn = mysqli_connect("localhost", "root", "", "placement");
-     $query="select * from training"; 
-     $r=mysqli_query($conn,$query);
-     $sn=1;
-     while($row=mysqli_fetch_row($r)) 
-     {
-          echo "<tr>";  echo "<td>";
-          echo $sn; echo "</td>";
-          $sn++;
 
-         echo "<td>";
-         echo $row[0]; echo "</td>";
+<?php
+                            $conn = mysqli_connect("localhost", "root", "", "placement");
+
+                            // Check if the form is submitted
+                            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                $coursename = $_POST['coursename'];
+                               // $branch = $_POST['branch'];
+
+                                if (!empty($coursename)) {
+                                    $query = "SELECT * FROM training WHERE coursename = '$coursename'";
+                                // } elseif (!empty($branch)) {
+                                //     $query = "SELECT * FROM student WHERE branch = '$branch'";
+                                } else {
+                                    $query = "SELECT * FROM training";
+                                }
+                            } else {
+                                $query = "SELECT * FROM training";
+                            }
+
+                            $result = mysqli_query($conn, $query);
+                            $sn = 1;
+
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_row($result)) {
+                                    echo "<tr>";
+                                    echo "<td>".$sn."</td>";
+                                    $sn++;
+                                    for ($i = 0; $i < count($row); $i++) {
+                                        echo "<td>".$row[$i]."</td>";
+                                    }
+                                    echo "</tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='12' style='text-align:center;'>Not Found</td></tr>";
+                            }
+                            ?>
+                            </tbody>
+                        </table>
+                    </body>
+                </html>
+                </font>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
+
+                    
+      
+<!--     <?php
+     // $conn = mysqli_connect("localhost", "root", "", "placement");
+     // $query="select * from training"; 
+     // $r=mysqli_query($conn,$query);
+     // $sn=1;
+     // while($row=mysqli_fetch_row($r)) 
+     // {
+     //      echo "<tr>";  echo "<td>";
+     //      echo $sn; echo "</td>";
+     //      $sn++;
+
+     //     echo "<td>";
+     //     echo $row[0]; echo "</td>";
        
-         echo "<td>";
-         echo $row[1]; echo "</td>";
+     //     echo "<td>";
+     //     echo $row[1]; echo "</td>";
 
-         echo "<td>";
-         echo $row[2]; echo "</td>";
+     //     echo "<td>";
+     //     echo $row[2]; echo "</td>";
 
-         echo "<td>";
-         echo $row[3]; echo "</td>";
+     //     echo "<td>";
+     //     echo $row[3]; echo "</td>";
 
-     }
+    // }
  ?>
 </tr>
 
@@ -93,4 +161,4 @@ img:hover{
 </div>
 </div>
 </body>
-</html>
+</html> -->
