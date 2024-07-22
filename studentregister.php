@@ -40,6 +40,8 @@
           { echo  "<script>alert('ADDED SUCESSFULLY') </script>";
           }   
          // header("refresh:3;url=a_app.php");
+            
+         header("refresh:3;url=studentregister.html");
         }
    }
 ?>
