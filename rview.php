@@ -67,15 +67,16 @@ label, select, input {
                             <form method="POST" action="">
 <!--                                 <label for="student_id">Search by Student ID:</label> -->
                                 <input type="text" id="sid" name="sid" placeholder="Enter Student ID">
+                               <input type="text" id="coursename" name="coursename" placeholder="Enter Course Name">
                                 
-                                <label for="coursename">Select Course Name:</label>
+<!--                                 <label for="coursename">Select Course Name:</label>
                                 <select id="coursename" name="coursename">
                                     <option value="">All</option>
                                     <option value="CSE">CSE</option>
                                     <option value="ECE">ECE</option>
-                                    <option value="ME">ME</option>
+                                    <option value="ME">ME</option> -->
                                     <!-- Add other branches as needed -->
-                                </select>
+<!--                                 </select> -->
                                 <button type="submit">Search</button>
                             </form>
                         </div>
@@ -105,7 +106,7 @@ label, select, input {
                                 if (!empty($sid)) {
                                     $query = "SELECT * FROM register WHERE sid = '$sid'";
                                 } elseif (!empty($coursename)) {
-                                    $query = "SELECT * FROM training WHERE coursename = '$coursename'";
+                                    $query = "SELECT * FROM register WHERE coursename = '$coursename'";
                                 } else {
                                     $query = "SELECT * FROM register";
                                 }
